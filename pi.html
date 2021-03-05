@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Тест Железа</title>
+    <style>
+
+        body {
+
+            background-color: #000;
+
+        }
+
+        h1 {
+            font-family: 'Segoe UI';
+            text-align: center;
+            color: #fff;
+        }
+
+        p {
+
+            font-family: 'Segoe UI';
+            text-align: center;
+            color: #fff;
+            font-size: 20px;
+
+        }
+
+        .but {
+
+            text-align: center;
+
+        }
+
+        .block {
+
+            display: block;
+            border: #ff0000 solid 2px;
+            border-radius: 20px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="block">
+
+<h1>Тест Железа</h1>
+
+<br>
+<p><input type="checkbox" id="in0">Бесконечный цикл</p>
+<br>
+
+<div class="but"><button style="font-size: 25px;" id="but0" onclick="stst()">Старт</button></div><br><br>
+
+    </div>
+
+</body>
+</html>
+<script src="Q.js"></script>
+<script>
+var on = false;
+var fl = false;
+var t = 0;
+var nog = 0;
+
+setInterval(function() {
+
+
+if (on && !fl) {
+    for (var i = 0; i <= 1000; i++) {
+    t += generate();
+
+    }
+stst();
+alert(t+' mc. (NOG=10000000)');
+nog = 0;
+
+} else if (on && fl) {
+
+    t += generate();
+
+}
+
+});
+
+
+
+
+
+
+function stst() {
+console.log(nog);
+    if (on && fl) {
+
+        on = false;
+        fl = false;
+        alert(t+' mc. (NOG='+ nog +')');
+        nog = 0;
+        printElSet('but0', 'Старт');
+
+        return;
+}
+
+on = !on;
+nog = 0;
+if (on) {
+    printElSet('but0', 'Стоп');
+    if (getElId('in0', 2)) {
+
+        fl = true;
+
+    } else {
+
+        fl = false;
+
+    }
+} else {
+    printElSet('but0', 'Старт');
+
+}
+
+}
+
+function generate() {
+
+var start = new Date; // засекли время
+var a = 1;
+
+for (var i = 0; i <= 10000; i++) {
+
+    a += Math.sqrt(Math.random() * ( (a * Math.random() / Math.PI * Math.random() * Math.PI) + start.getMilliseconds() / start.getSeconds()))
+    nog ++;
+}
+
+var end = new Date; // конец измерения
+//console.log('Time: '+ (end - start) + '\nA = ' + a);
+return (end - start);
+
+}
+
+
+
+
+</script>
