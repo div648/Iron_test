@@ -76,6 +76,7 @@ if (on && !fl) {
 stst();
 alert(t+' mc. (NOG=10000000)');
 nog = 0;
+t = 0;
 
 } else if (on && fl) {
 
@@ -98,6 +99,7 @@ function stst() {
         fl = false;
         alert(t+' mc. (NOG='+ nog +')');
         nog = 0;
+        t = 0;
         printElSet('but0', 'Старт');
 
         return;
@@ -105,6 +107,8 @@ function stst() {
 
 on = !on;
 nog = 0;
+t = 0;
+    
 if (on) {
     printElSet('but0', 'Стоп');
     if (getElId('in0', 2)) {
